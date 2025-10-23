@@ -1,0 +1,51 @@
+@font-face {
+    font-family: 'Alex Brush';
+    src: url('fonts/AlexBrush-Regular.woff2') format('woff2'),
+        url('fonts/AlexBrush-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('fonts/GlacialIndifference-Regular.woff2') format('woff2'),
+        url('fonts/GlacialIndifference-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body{
+    background-color:rgb(99, 168, 77);
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:1fr auto;
+
+    row-gap:10px;
+}
+#container{
+    display:grid;
+    grid-column: 1 / -1; /* Spans all columns */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+
+    
+
+}
+.card{
+    background-color:rgb(255, 222, 113);
+    padding: 30px;
+    color:rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Alex Brush',serif;
+    font-size:20px;
+}
+button{
+    background-color: antiquewhite;
+    padding:10px;
+    border:none;
+    color:black;
+    border-radius: 10px;
+    grid-column:2/3;
+    
+}
