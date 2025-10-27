@@ -8,8 +8,34 @@
 </head>
 <body>
     <div id="container"></div>
+    <dialog>
+        <form class = "form">
+            <div class = "left_side">
+                <label for="title">Title:</label>
+                <input type="text" id="title">
+                <label for="author">Author</label>
+                <input type="text" id="author">
+                <label for="pages">Pages</label>
+                <input type ="text" id="pages">
+            </div>
+            <div class = "right_side">
+                <label for="has_read">Have you read this book</label>
+                <div>
+                <label for="yes">Yes</label>
+                <input type="radio" id="yes" name="read_check" value="yes">
+                <label for="no">No</label>
+                <input type="radio" id = "no" name="read_check" value="no">
+                </div>
+            </div>
+            <div>
+            <button class="submit" type="submit">Submit</button>
+            </div>
+        </form>
+        
+    </dialog>
+    <button class="new_book">New Book</button>
     <script src="script.js"></script>
-    <button>New Book</button>
+    
     
 </body>
 </html>

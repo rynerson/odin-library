@@ -40,7 +40,7 @@ body{
     font-family: 'Alex Brush',serif;
     font-size:20px;
 }
-button{
+.new_book{
     background-color: antiquewhite;
     padding:10px;
     border:none;
@@ -48,4 +48,35 @@ button{
     border-radius: 10px;
     grid-column:2/3;
     
+}
+.submit{
+    background-color:rgb(117, 103, 37);
+    padding:10px;
+    border:none;
+    color:rgb(255, 255, 255);
+    border-radius:10px;
+    
+}
+
+.left_side,
+.right_side {
+    flex: 1 1 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.form{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding:10px;
+  
+}
+dialog{
+    border:none;
+    background-color: rgb(196, 169, 83);
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px #363817;
 }

@@ -15,47 +15,66 @@ function Book(title, author, pages, hasRead){
     this.bookID = self.crypto.randomUUID();
 }
 //take params, create a book, and then store it in the library
-function addBooksToLibrary(){
-    //this is place_holder. Later I will implement this functionality in a form.
-    const userTitle = "Green Eggs and Ham";
-    const userAuthor= "Dr. Seuss";
-    const userPages = "246";
-    const userHasRead = "yes";
-    
+function addBooksToLibrary(userTitle,userAuthor,userPages,userHasRead){
+   
     const myBook = new Book(userTitle,userAuthor,userPages,userHasRead);
 
     myLibrary.push(myBook);
+    displayBook(myBook);
 
 }
-addBooksToLibrary();
-addBooksToLibrary();
-addBooksToLibrary();
-for (let i = 0; i < myLibrary.length; i++) {
-        const book = myLibrary[i];
-        const container = document.getElementById('container');
-        const bookCard = document.createElement("div");
-        bookCard.classList.add("card");
 
-        const title_p = document.createElement("p");
-        title_p.textContent = "Title: "+ book.title;
+function displayBook(book){
+  const container = document.getElementById('container');
+  const bookCard = document.createElement("div");
+  bookCard.classList.add("card");
 
-        const author_p = document.createElement("p");
-        author_p.textContent = "Author: " + book.author;
+  const title_p = document.createElement("p");
+  title_p.textContent = "Title: " + book.title;
 
-        const pages_p = document.createElement("p");
-        pages_p.textContent = "Pages: " + book.pages;
+  const author_p = document.createElement("p");
+  author_p.textContent = "Author: " + book.author;
 
-        const has_read_p = document.createElement("p");
-        has_read_p.textContent = "Read?: " + book.hasRead;
+  const pages_p = document.createElement("p");
+  pages_p.textContent = "Pages: " + book.pages;
 
-        const ID_P = document.createElement("p");
-        ID_P.textContent = "Unique ID: " + book.bookID;
+  const has_read_p = document.createElement("p");
+  has_read_p.textContent = "Read?: " + book.hasRead;
 
-        bookCard.appendChild(title_p);
-        bookCard.appendChild(author_p);
-        bookCard.appendChild(pages_p);
-        bookCard.appendChild(has_read_p);
-        bookCard.appendChild(ID_P);
-        container.appendChild(bookCard);
+  const ID_P = document.createElement("p");
+  ID_P.textContent = "Unique ID: " + book.bookID;
+
+  bookCard.append(title_p, author_p, pages_p, has_read_p, ID_P);
+  container.appendChild(bookCard);
+
+}
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
+const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const pages = document.getElementById('pages');
+            const selectedRadio = document.querySelector('input[name="read_check"]:checked');
+            if(selectedRadio){
+              const readValue = selectedRadio.value;
+              console.log("Selected option (JavaScript):", readValue);
+              // Call a function to handle the data
+            addBooksToLibrary(title,author,pages,readValue);
+            }
         
-}
+            
+        });
