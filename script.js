@@ -28,6 +28,7 @@ function displayBook(book){
   const container = document.getElementById('container');
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
+  bookCard.dataset.id = book.bookID;
 
   const title_p = document.createElement("p");
   title_p.textContent = "Title: " + book.title;
@@ -43,9 +44,15 @@ function displayBook(book){
 
   const ID_P = document.createElement("p");
   ID_P.textContent = "Unique ID: " + book.bookID;
-
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove Book";
+  removeBtn.classList.add("remove_btn")
+  removeBtn.addEventListener("click", () => removeBook(book.bookID));
   bookCard.append(title_p, author_p, pages_p, has_read_p, ID_P);
+
+  bookCard.appendChild(removeBtn);
   container.appendChild(bookCard);
+
 
 }
 const dialog = document.querySelector("dialog");
@@ -67,7 +74,7 @@ form.addEventListener('submit', function(event) {
             // Get form data
             const title = document.getElementById('title').value;
             const author = document.getElementById('author').value;
-            const pages = document.getElementById('pages');
+            const pages = document.getElementById('pages').value;
             const selectedRadio = document.querySelector('input[name="read_check"]:checked');
             if(selectedRadio){
               const readValue = selectedRadio.value;
@@ -78,3 +85,19 @@ form.addEventListener('submit', function(event) {
         
             
         });
+        function removeBook(id){
+          //remove book from array
+          const index = myLibrary.findIndex(book => book.bookID === id);
+           if (index !== -1) {
+            myLibrary.splice(index, 1);
+          }
+          //remove book from DOM
+          const container = document.getElementById("container");
+          const cardToRemove = container.querySelector(`[data-id="${id}"]`);
+          if (cardToRemove) {
+            cardToRemove.remove();
+          }
+
+
+        }
+        

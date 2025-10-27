@@ -20,6 +20,7 @@ body{
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:1fr auto;
+    font-family:'Glacial Indifference',serif;
 
     row-gap:10px;
 }
@@ -79,4 +80,10 @@ dialog{
     background-color: rgb(196, 169, 83);
     border-radius: 20px;
     box-shadow: 2px 2px 2px #363817;
+}
+.remove_btn{
+    border:none;
+    border-radius:10px;
+    padding:10px;
+
 }
