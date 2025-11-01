@@ -1,3 +1,4 @@
+/*fonts*/
 @font-face {
     font-family: 'Alex Brush';
     src: url('fonts/AlexBrush-Regular.woff2') format('woff2'),
@@ -15,15 +16,17 @@
     font-style: normal;
     font-display: swap;
 }
+/*body*/
 body{
     background-color:rgb(99, 168, 77);
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows:1fr auto;
-    font-family:'Glacial Indifference',serif;
+    font-family:'Glacial Indifference',sans-serif;
 
     row-gap:10px;
 }
+/*card styles*/
 #container{
     display:grid;
     grid-column: 1 / -1; /* Spans all columns */
@@ -41,6 +44,20 @@ body{
     font-family: 'Alex Brush',serif;
     font-size:20px;
 }
+.remove_btn{
+    border:none;
+    border-radius:10px;
+    padding:10px;
+
+}
+.read_toggle{
+    border:none;
+    border-radius:10px;
+    padding:10px;
+    margin-left:10px;
+
+}
+/*new book button*/
 .new_book{
     background-color: antiquewhite;
     padding:10px;
@@ -50,6 +67,7 @@ body{
     grid-column:2/3;
     
 }
+/*form styles*/
 .submit{
     background-color:rgb(117, 103, 37);
     padding:10px;
@@ -80,10 +98,4 @@ dialog{
     background-color: rgb(196, 169, 83);
     border-radius: 20px;
     box-shadow: 2px 2px 2px #363817;
-}
-.remove_btn{
-    border:none;
-    border-radius:10px;
-    padding:10px;
-
 }
