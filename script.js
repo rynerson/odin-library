@@ -1,21 +1,19 @@
 const myLibrary = [];
 //the constructor
-function Book(title, author, pages, hasRead){
-      if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-    }
+class Book{
+  constructor(title, author, pages, hasRead){
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.hasRead = hasRead;
-    this.info = function(){
-        let info = this.title+" by " + this.author+ ", "+pages+", "+hasRead;
-        return info;
-    }
     this.bookID = self.crypto.randomUUID();
-    
-    
+
+  }
+  info(){
+    return `${this.title} by ${this.author}, ${this.pages}, ${this.hasRead}`;
+  }
 }
+
 /*function to toggle the read state of the books*/
 Book.prototype.ReadToggle = function(cardElement){
          const toggle = cardElement.querySelector('.read_toggle');
